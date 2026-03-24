@@ -1,0 +1,38 @@
+{
+  "name": "bananahub",
+  "version": "0.1.0",
+  "description": "Template manager for Nanobanana — Gemini image generation skill",
+  "type": "module",
+  "bin": {
+    "bananahub": "./bin/bananahub.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "files": [
+    "bin/",
+    "lib/"
+  ],
+  "keywords": [
+    "nanobanana",
+    "gemini",
+    "image-generation",
+    "template",
+    "bananahub",
+    "claude",
+    "ai",
+    "prompt-template"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nanobanana/bananahub.git"
+  },
+  "homepage": "https://github.com/nanobanana/bananahub#readme",
+  "bugs": {
+    "url": "https://github.com/nanobanana/bananahub/issues"
+  },
+  "dependencies": {
+    "tar": "^7.0.0"
+  }
+}

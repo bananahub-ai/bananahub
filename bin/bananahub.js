@@ -11,18 +11,18 @@ ${bold('USAGE')}
   bananahub <command> [options]
 
 ${bold('COMMANDS')}
-  ${cyan('add')} <user/repo>           Install template(s) from a GitHub repo
-      --template <name>       Install a specific template from multi-repo
-      --all                   Install all templates from multi-repo
-  ${cyan('remove')} <template-id>      Uninstall a template
-  ${cyan('list')}                      List installed templates
-  ${cyan('update')} [template-id]      Update one or all installed templates
-  ${cyan('info')} <template-id>        Show template details
-  ${cyan('search')} <keyword>          Search hub for templates (coming soon)
-  ${cyan('trending')}                  Show trending templates (coming soon)
-  ${cyan('init')}                      Scaffold a new template project
-  ${cyan('validate')} [path]           Validate a template directory
-  ${cyan('registry')} rebuild          Rebuild local registry index
+  ${cyan('add')} <user/repo[/path/to/template]>  Install template(s) from a GitHub repo
+      --template <name>               Pick one template from a multi-template directory
+      --all                           Install all templates from a collection
+  ${cyan('remove')} <template-id>                Uninstall a template
+  ${cyan('list')}                                List installed templates
+  ${cyan('update')} [template-id]                Update one or all installed templates
+  ${cyan('info')} <template-id>                  Show template details
+  ${cyan('search')} <keyword>                    Search hub for templates (coming soon)
+  ${cyan('trending')}                            Show trending templates (coming soon)
+  ${cyan('init')}                                Scaffold a new template project
+  ${cyan('validate')} [path]                     Validate a template directory
+  ${cyan('registry')} rebuild                    Rebuild local registry index
 
 ${bold('OPTIONS')}
   --help, -h                Show this help message
@@ -30,6 +30,8 @@ ${bold('OPTIONS')}
 
 ${bold('EXAMPLES')}
   bananahub add user/nanobanana-cyberpunk
+  bananahub add nano-banana-hub/nanobanana/cute-sticker
+  bananahub add user/multi-template-repo --template portrait
   bananahub list
   bananahub validate ./my-template
   bananahub init
@@ -108,7 +110,7 @@ async function main() {
   }
 }
 
-main().catch(err => {
+main().catch((err) => {
   console.error(err.message || err);
   process.exit(1);
 });

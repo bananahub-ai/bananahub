@@ -1,6 +1,6 @@
 # bananahub
 
-Template manager for [Nanobanana](https://github.com/nanobanana) — Gemini image generation skill.
+Template manager for [Nanobanana](https://github.com/nano-banana-hub/nanobanana) — Gemini image generation skill.
 
 Install, manage, and share prompt templates for the Nanobanana Claude Code skill.
 
@@ -22,17 +22,19 @@ npx bananahub <command>
 
 ## Commands
 
-### `add <user/repo>`
+### `add <user/repo[/path/to/template]>`
 
-Install template(s) from a GitHub repository.
+Install template(s) from a GitHub repository, a specific template directory, or a known template collection.
 
 ```bash
 bananahub add user/nanobanana-cyberpunk
+bananahub add nano-banana-hub/nanobanana/cute-sticker
+bananahub add user/multi-template-repo --template portrait
 ```
 
 Options:
-- `--template <name>` — Install a specific template from a multi-template repo
-- `--all` — Install all templates from a multi-template repo
+- `--template <name>` — Install a specific template from a multi-template directory or known collection
+- `--all` — Install all templates from a multi-template directory or known collection
 
 ### `remove <template-id>`
 
@@ -117,7 +119,11 @@ bananahub registry rebuild
 
 ## Template Format
 
-A valid Nanobanana template repository must contain a `template.yaml` (or `template.json`) file at its root with at minimum a `name` and `version` field. Templates can be single-template repos or multi-template repos containing subdirectories.
+A valid Nanobanana template directory must contain a `template.md` file with YAML frontmatter at its root. Templates may live as:
+
+- a single-template repository with `template.md` at repo root
+- a multi-template repository with `bananahub.json` plus per-template subdirectories
+- a known collection layout such as `references/templates/<template-id>/template.md`
 
 ## License
 

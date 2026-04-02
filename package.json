@@ -26,11 +26,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/nanobanana/bananahub.git"
+    "url": "https://github.com/nano-banana-hub/bananahub.git"
   },
-  "homepage": "https://github.com/nanobanana/bananahub#readme",
+  "homepage": "https://github.com/nano-banana-hub/bananahub#readme",
   "bugs": {
-    "url": "https://github.com/nanobanana/bananahub/issues"
+    "url": "https://github.com/nano-banana-hub/bananahub/issues"
   },
   "dependencies": {
     "tar": "^7.0.0"

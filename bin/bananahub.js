@@ -18,8 +18,10 @@ ${bold('COMMANDS')}
   ${cyan('list')}                                List installed templates
   ${cyan('update')} [template-id]                Update one or all installed templates
   ${cyan('info')} <template-id>                  Show template details
-  ${cyan('search')} <keyword>                    Search hub for templates (coming soon)
-  ${cyan('trending')}                            Show trending templates (coming soon)
+  ${cyan('search')} <keyword> [--limit N] [--curated|--discovered]
+                                       Search hub for templates
+  ${cyan('trending')} [--period 24h|7d] [--limit N]
+                                       Show trending templates
   ${cyan('init')}                                Scaffold a new prompt or workflow template project
   ${cyan('validate')} [path]                     Validate a template directory
   ${cyan('registry')} rebuild                    Rebuild local registry index
@@ -32,6 +34,8 @@ ${bold('EXAMPLES')}
   bananahub add user/nanobanana-cyberpunk
   bananahub add nano-banana-hub/nanobanana/cute-sticker
   bananahub add user/multi-template-repo --template portrait
+  bananahub search logo --curated
+  bananahub trending --period 7d
   bananahub list
   bananahub validate ./my-template
   bananahub init
@@ -86,7 +90,7 @@ async function main() {
     }
     case 'trending': {
       const { trendingCommand } = await import('../lib/commands/search.js');
-      await trendingCommand();
+      await trendingCommand(cmdArgs);
       break;
     }
     case 'init': {

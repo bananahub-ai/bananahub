@@ -71,19 +71,30 @@ bananahub info cyberpunk
 
 ### `search <keyword>`
 
-Search the hub for templates. *(coming soon)*
+Search the hub catalog for prompt or workflow templates.
 
 ```bash
 bananahub search portrait
+bananahub search logo --curated
 ```
+
+Options:
+- `--limit <n>` — Limit the number of results (default: 8, max: 20)
+- `--curated` — Search only curated templates
+- `--discovered` — Search only discovered templates
 
 ### `trending`
 
-Show trending templates. *(coming soon)*
+Show recent install trends from the BananaHub API.
 
 ```bash
 bananahub trending
+bananahub trending --period 24h
 ```
+
+Options:
+- `--period <24h|7d>` — Trending window (default: `7d`)
+- `--limit <n>` — Limit the number of results (default: 10, max: 20)
 
 ### `init`
 

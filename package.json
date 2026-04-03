@@ -1,10 +1,10 @@
 {
   "name": "bananahub",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Template manager for BananaHub Skill — installable Gemini workflow modules",
   "type": "module",
   "bin": {
-    "bananahub": "./bin/bananahub.js"
+    "bananahub": "bin/bananahub.js"
   },
   "engines": {
     "node": ">=18.0.0"
@@ -26,7 +26,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bananahub-ai/bananahub.git"
+    "url": "git+https://github.com/bananahub-ai/bananahub.git"
   },
   "homepage": "https://github.com/bananahub-ai/bananahub#readme",
   "bugs": {

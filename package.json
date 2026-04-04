@@ -14,14 +14,14 @@
     "lib/"
   ],
   "keywords": [
-    "nanobanana",
     "gemini",
     "image-generation",
     "template",
     "bananahub",
     "claude",
     "ai",
-    "prompt-template"
+    "prompt-template",
+    "workflow-hub"
   ],
   "license": "MIT",
   "repository": {

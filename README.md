@@ -1,8 +1,16 @@
 # bananahub
 
-Template manager for [BananaHub Skill](https://github.com/bananahub-ai/bananahub-skill) — the agent-native Gemini image workflow.
+Template manager for [BananaHub Skill](https://github.com/bananahub-ai/bananahub-skill) — the agent-native multi-provider image workflow.
 
 Install, manage, and share prompt or workflow modules for the BananaHub Skill workflow. BananaHub keeps the runtime lean and lets reusable prompt structures and guided SOPs travel as installable units.
+
+## Model Strategy
+
+BananaHub now treats provider/model choice as a first-class interaction:
+
+- Prefer `gpt-image-2` for new high-quality generation, launch visuals, README covers, information graphics, and premium first-pass outputs.
+- Prefer Gemini / Nano Banana (`gemini-3-pro-image-preview` first) for edit-heavy, multi-reference, consistency-heavy, and previously validated template workflows.
+- Templates can declare provider/model support explicitly, so `bananahub` can surface the recommended model instead of treating all image models as interchangeable.
 
 ## Installation
 
@@ -44,12 +52,13 @@ Uninstall an installed template.
 bananahub remove cyberpunk
 ```
 
-### `list`
+### `list [--by-model]`
 
 List all installed templates.
 
 ```bash
 bananahub list
+bananahub list --by-model
 ```
 
 ### `update [template-id]`
@@ -69,6 +78,18 @@ Show details about an installed template (metadata, version, source).
 bananahub info cyberpunk
 ```
 
+`info` now shows provider/model support and suggests an explicit override when a template has a stronger recommended model, for example `gpt-image-2`.
+
+### `models [--remote]`
+
+Show BananaHub's model support map from the local registry or the remote hub catalog.
+
+```bash
+bananahub models
+bananahub models --remote
+bananahub models --provider openai
+```
+
 ### `search <keyword>`
 
 Search the hub catalog for prompt or workflow templates.
@@ -76,12 +97,17 @@ Search the hub catalog for prompt or workflow templates.
 ```bash
 bananahub search portrait
 bananahub search logo --curated
+bananahub search logo --model gpt-image-2
+bananahub search diagram --provider openai --capability generation
 ```
 
 Options:
 - `--limit <n>` — Limit the number of results (default: 8, max: 20)
 - `--curated` — Search only curated templates
 - `--discovered` — Search only discovered templates
+- `--provider <id>` — Filter by provider, for example `openai` or `google-ai-studio`
+- `--model <id>` — Filter by canonical model id or alias, for example `gpt-image-2` or `nano-banana-pro`
+- `--capability <name>` — Filter by capability such as `generation`, `edit`, or `mask_edit`
 
 ### `trending`
 

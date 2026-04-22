@@ -15,10 +15,11 @@ ${bold('COMMANDS')}
       --template <name>               Pick one template from a multi-template directory
       --all                           Install all templates from a collection
   ${cyan('remove')} <template-id>                Uninstall a template
-  ${cyan('list')}                                List installed templates
+  ${cyan('list')} [--by-model]                   List installed templates
   ${cyan('update')} [template-id]                Update one or all installed templates
   ${cyan('info')} <template-id>                  Show template details
-  ${cyan('search')} <keyword> [--limit N] [--curated|--discovered]
+  ${cyan('models')} [--remote] [--provider P]    Show provider/model support map
+  ${cyan('search')} <keyword> [--limit N] [--provider P] [--model M]
                                        Search hub for templates
   ${cyan('trending')} [--period 24h|7d] [--limit N]
                                        Show trending templates
@@ -35,8 +36,10 @@ ${bold('EXAMPLES')}
   bananahub add bananahub-ai/bananahub-skill/cute-sticker
   bananahub add user/multi-template-repo --template portrait
   bananahub search logo --curated
+  bananahub search logo --model gpt-image-2
+  bananahub models --remote
   bananahub trending --period 7d
-  bananahub list
+  bananahub list --by-model
   bananahub validate ./my-template
   bananahub init
   bananahub init --type workflow
@@ -70,7 +73,7 @@ async function main() {
     }
     case 'list': {
       const { listCommand } = await import('../lib/commands/list.js');
-      await listCommand();
+      await listCommand(cmdArgs);
       break;
     }
     case 'update': {
@@ -81,6 +84,11 @@ async function main() {
     case 'info': {
       const { infoCommand } = await import('../lib/commands/info.js');
       await infoCommand(cmdArgs);
+      break;
+    }
+    case 'models': {
+      const { modelsCommand } = await import('../lib/commands/models.js');
+      await modelsCommand(cmdArgs);
       break;
     }
     case 'search': {

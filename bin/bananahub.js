@@ -32,8 +32,8 @@ ${bold('OPTIONS')}
   --version, -v             Show version
 
 ${bold('EXAMPLES')}
-  bananahub add user/bananahub-cyberpunk
-  bananahub add bananahub-ai/bananahub-skill/cute-sticker
+  bananahub add user/bananahub-infographics
+  bananahub add bananahub-ai/templates/cute-sticker
   bananahub add user/multi-template-repo --template portrait
   bananahub search logo --curated
   bananahub search logo --model gpt-image-2

@@ -35,8 +35,8 @@ npx bananahub <command>
 Install template(s) from a GitHub repository, a specific template directory, or a known template collection.
 
 ```bash
-bananahub add user/bananahub-cyberpunk
-bananahub add bananahub-ai/bananahub-skill/cute-sticker
+bananahub add user/bananahub-infographics
+bananahub add bananahub-ai/templates/cute-sticker
 bananahub add user/multi-template-repo --template portrait
 ```
 

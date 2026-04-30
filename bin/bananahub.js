@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 
 import { bold, dim, cyan, yellow } from '../lib/color.js';
+import { CLI_VERSION } from '../lib/constants.js';
 
-const VERSION = '0.1.1';
+const VERSION = CLI_VERSION;
 
 const HELP = `
 ${bold('bananahub')} ${dim(`v${VERSION}`)} — Template manager for BananaHub Skill

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { bold, dim, cyan, yellow } from '../lib/color.js';
-import { CLI_VERSION } from '../lib/constants.js';
+import { CLI_VERSION } from '../lib/version.js';
 
 const VERSION = CLI_VERSION;
 

@@ -12,7 +12,7 @@ ${bold('USAGE')}
   bananahub <command> [options]
 
 ${bold('COMMANDS')}
-  ${cyan('add')} <user/repo[/path/to/template]>  Install template(s) from a GitHub repo
+  ${cyan('add')} <repo-or-path>                  Install template(s) from GitHub or a local path
       --template <name>               Pick one template from a multi-template directory
       --all                           Install all templates from a collection
   ${cyan('remove')} <template-id>                Uninstall a template
@@ -35,6 +35,8 @@ ${bold('OPTIONS')}
 ${bold('EXAMPLES')}
   bananahub add user/bananahub-infographics
   bananahub add bananahub-ai/templates/cute-sticker
+  bananahub add ./templates/cute-sticker
+  bananahub add ./templates --template cute-sticker
   bananahub add user/multi-template-repo --template portrait
   bananahub search logo --curated
   bananahub search logo --model gpt-image-2
